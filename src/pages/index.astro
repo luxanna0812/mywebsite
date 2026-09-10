@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import RecordSleeve from '../components/RecordSleeve.astro';
+import { records } from '../data/records';
+import ListeningTransition from '../components/ListeningTransition.astro';
+---
+<BaseLayout>
+  <section class="intro" aria-labelledby="library-title">
+    <div><p class="eyebrow">A PERSONAL COLLECTION · 私人收藏</p><h1 id="library-title">Personal <em>Library.</em></h1></div>
+    <div class="intro-note"><p>一些经历、作品与持续的兴趣，<br />收录于此。</p><span>挑一张唱片，从这里开始 ↙</span></div>
+  </section>
+  <section aria-label="唱片收藏">
+    <div class="collection-heading"><span>● &nbsp; THE COLLECTION</span><span>01 — 09 <span class="muted">/ 持续收录中</span></span></div>
+    <ol class="record-shelf">{records.map(record => <RecordSleeve record={record} />)}</ol>
+    <div class="collection-end"><span>九张唱片，九个入口。</span><span>TAKE YOUR TIME.</span></div>
+  </section>
+  <ListeningTransition />
+</BaseLayout>

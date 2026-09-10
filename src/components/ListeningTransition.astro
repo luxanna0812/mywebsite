@@ -1,0 +1,30 @@
+---
+import AudioControls from './AudioControls.astro';
+---
+<dialog class="listening" aria-labelledby="listening-title">
+  <div class="listening-inner">
+    <p class="eyebrow">A MOMENT BEFORE THE FIRST TRACK</p>
+    <canvas class="headphones" aria-hidden="true"></canvas>
+    <p class="listening-caption">戴上耳机，进入这张唱片。</p>
+    <h2 id="listening-title"></h2>
+    <div class="listening-progress" aria-hidden="true"><span></span></div>
+    <button class="listening-skip" type="button">跳过动画，直接进入 ↗</button>
+    <AudioControls />
+  </div>
+</dialog>
+
+<script>import { installListeningTransition } from "../scripts/listening-transition"; installListeningTransition();</script>
+
+<style>
+  .listening { position: fixed; inset: 0; width: 100%; max-width: none; height: 100%; max-height: none; margin: 0; padding: 24px; border: 0; background: #f3f0e8; color: #292823; }
+  .listening::backdrop { background: #f3f0e8; }
+  .listening-inner { min-height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+  .eyebrow { color: #77746c; font-size: 9px; letter-spacing: 2px; }
+  .headphones { width: min(680px, 92vw, 64vh); aspect-ratio: 1; display: block; }
+  .listening-caption { font-size: 12px; color: #77746c; margin: 8px 0 14px; }
+  h2 { font-family: Georgia, serif; font-size: clamp(23px, 5vw, 32px); font-weight: 400; margin: 0; }
+  .listening-progress { width: 110px; height: 1px; background: #cec7b9; margin: 25px 0; }
+  .listening-progress span { display: block; height: 100%; background: #6c7356; transform-origin: left; }
+  .listening-skip { background: none; border: 0; font: inherit; font-size: 11px; color: #625f56; padding: 14px; cursor: pointer; }
+  .listening-skip:focus-visible { outline: 2px solid #625f56; outline-offset: 3px; }
+</style>

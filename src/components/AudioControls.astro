@@ -1,0 +1,14 @@
+<div class="audio-controls" data-audio-controls hidden role="group" aria-label="唱片背景音乐">
+  <span data-audio-title></span>
+  <span data-audio-status role="status"></span>
+  <button type="button" data-audio-toggle>播放音乐</button>
+  <button type="button" data-audio-mute aria-pressed="false">静音</button>
+</div>
+<script>import { installAudio } from '../scripts/record-audio'; installAudio();</script>
+<style>
+  .audio-controls { display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:12px; padding:14px 0; font-size:11px; color:#625f56; }
+  .audio-controls[hidden] { display:none; }
+  button { font:inherit; color:inherit; background:transparent; border:1px solid #cec7b9; border-radius:2px; padding:8px 12px; cursor:pointer; }
+  button:focus-visible { outline:2px solid #625f56; outline-offset:3px; }
+  [data-audio-title] { font-family:Georgia,serif; }
+</style>
