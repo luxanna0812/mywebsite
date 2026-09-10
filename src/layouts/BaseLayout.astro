@@ -4,6 +4,7 @@ import { ClientRouter } from 'astro:transitions';
 import AudioControls from '../components/AudioControls.astro';
 interface Props { title?: string }
 const { title = '朱筱萌 — Personal Library' } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 ---
 <!doctype html>
 <html lang="zh-CN">
@@ -18,8 +19,8 @@ const { title = '朱筱萌 — Personal Library' } = Astro.props;
     <a class="skip-link" href="#main">跳到主要内容</a>
     <div class="site-wrap">
       <header class="site-header">
-        <a class="identity" href="/" aria-label="朱筱萌，首页"><span class="identity-mark" aria-hidden="true">✳</span><span>朱筱萌<small>战略传播 · 广告 · 文化研究</small></span></a>
-        <nav aria-label="主导航"><a href="/" aria-current={Astro.url.pathname === '/' ? 'page' : undefined}>Library <span>09</span></a><a href="/library/profile/" aria-current={Astro.url.pathname.replace(/\/$/, '') === '/library/profile' ? 'page' : undefined}>关于 ↗</a></nav>
+        <a class="identity" href={base} aria-label="朱筱萌，首页"><span class="identity-mark" aria-hidden="true">✳</span><span>朱筱萌<small>战略传播 · 广告 · 文化研究</small></span></a>
+        <nav aria-label="主导航"><a href={base} aria-current={Astro.url.pathname === base ? 'page' : undefined}>Library <span>09</span></a><a href={`${base}library/profile/`} aria-current={Astro.url.pathname.replace(/\/$/, '') === `${base}library/profile` ? 'page' : undefined}>关于 ↗</a></nav>
       </header>
       <main id="main"><slot /></main>
       <AudioControls />

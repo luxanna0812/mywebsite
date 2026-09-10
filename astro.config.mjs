@@ -3,6 +3,8 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://luxanna0812.github.io',
+  base: '/mywebsite',
   vite: {
     server: {
       watch: {

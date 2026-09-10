@@ -38,9 +38,9 @@ const entries = [
 ];
 export const records: RecordEntry[] = entries.map(([slug, title, category, coverStyle, coverText], index) => ({
   number: String(index + 1).padStart(2, '0'), slug, title, category, coverStyle, coverText,
-  href: `/library/${slug}/`, order: index + 1,
-  cover: `/covers/${index + 1}.jpg`,
-  audio: `/audio/${index + 1}.m4a`,
+  href: `${import.meta.env.BASE_URL.replace(/\/?$/, '/')}library/${slug}/`, order: index + 1,
+  cover: `${import.meta.env.BASE_URL.replace(/\/?$/, '/')}covers/${index + 1}.jpg`,
+  audio: `${import.meta.env.BASE_URL.replace(/\/?$/, '/')}audio/${index + 1}.m4a`,
 })).sort((a, b) => a.order - b.order);
 
 export const detailSections: Record<string, DetailSection[]> = {
