@@ -1,0 +1,95 @@
+.record-detail { padding-top: 32px; }
+.record-detail > .back-link { margin-bottom: 34px; color: #66635b; }
+.detail-layout { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 62px; padding-top: 42px; }
+.detail-margin { min-width: 0; }
+.detail-margin-inner { position: sticky; top: 28px; }
+.index-label { margin: 0 0 18px; color: var(--record-accent); font-size: 9px; letter-spacing: 1.2px; }
+.index-label > span { display: block; margin-top: 9px; font-size: 9px; color: var(--muted); letter-spacing: 1px; }
+.track-index { display: flex; flex-direction: column; align-items: stretch; gap: 0; max-height: 46vh; overflow-y: auto; scrollbar-width: thin; scrollbar-color: var(--line) transparent; }
+.track-index a { display: grid; grid-template-columns: 23px minmax(0, 1fr); gap: 7px; padding: 11px 8px 11px 0; border-bottom: 1px solid #d4cfc370; line-height: 1.65; }
+.track-index a b { font: italic 11px var(--serif); padding-top: 3px; color: var(--record-accent); }
+.track-index a span { margin: 0; font-size: 11px; color: #777269; }
+.track-index a:hover span, .track-index a[aria-current="location"] span { color: #292823; }
+.track-index a[aria-current="location"] { border-bottom-color: var(--record-accent); }
+.track-index a:focus-visible { outline-offset: -2px; }
+.margin-thought { margin: 34px 16px 0 0; }
+.margin-thought > p { font-family: Georgia, 'Songti SC', SimSun, serif; font-size: 15px; line-height: 2; color: var(--record-accent); margin: 16px 0 14px; }
+.margin-thought > span:last-child { font-size: 7px; letter-spacing: 1.1px; color: var(--muted); }
+.margin-orbit { width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid var(--record-accent); border-radius: 50%; position: relative; opacity: .7; }
+.margin-orbit:before, .margin-orbit:after { content: ''; position: absolute; border: 1px solid var(--record-accent); border-radius: 50%; inset: 5px; }
+.margin-orbit:after { inset: 11px; }
+.margin-orbit i { width: 5px; height: 5px; border-radius: 50%; background: var(--record-accent); }
+.detail-main { min-width: 0; }
+.record-detail .detail-sections { border-top: 0; margin-bottom: 0; }
+.record-detail .detail-section { max-width: none; padding: 31px 0 34px; }
+.record-detail .detail-section:first-child { padding-top: 0; }
+.record-detail .detail-section:last-child { border-bottom: 0; }
+.record-detail section[id] { scroll-margin-top: 30px; }
+.section-track { font-family: var(--serif); font-size: 12px; letter-spacing: 1px; color: var(--record-accent); margin: 0 0 15px; }
+.section-track span { font: 8px Arial, sans-serif; color: var(--muted); letter-spacing: 1px; margin-left: 8px; }
+.record-detail .detail-section-heading { display: block; }
+.record-detail .detail-section h2 { font-size: clamp(20px, 2.3vw, 25px); line-height: 1.5; color: #38372f; overflow-wrap: anywhere; }
+.record-detail .detail-section-heading > span { display: block; margin-top: 10px; text-align: left; line-height: 1.8; }
+.record-detail .detail-intro, .record-detail .detail-section li { color: #67645c; font-size: 14px; line-height: 2; }
+.record-detail .detail-section li { padding-left: 4px; margin: 12px 0; }
+.record-detail .detail-section li::marker { color: var(--record-accent); font-size: 9px; }
+.record-detail .detail-tags span { border-radius: 2px; border-color: transparent; background: var(--record-paper); color: var(--record-accent); padding: 6px 9px; }
+.experience-note { display: grid; grid-template-columns: 43px minmax(0, 1fr); gap: 12px; border-left: 2px solid var(--record-accent); padding: 13px 18px; background: linear-gradient(90deg, var(--record-paper), transparent); margin-top: 25px; }
+.experience-note > span { font-size: 9px; color: var(--record-accent); padding-top: 5px; letter-spacing: 1px; }
+.experience-note p { margin: 0; font-family: Georgia, 'Songti SC', SimSun, serif; font-size: 13px; color: #625e52; line-height: 1.95; }
+.record-detail .detail-links { margin-top: 24px; gap: 0; border-top: 1px solid var(--line); }
+.record-detail .detail-links a, .record-detail .detail-links span { width: 100%; padding: 15px 5px; margin: 0; font-size: 13px; color: var(--record-accent); overflow-wrap: anywhere; }
+.record-detail .detail-links a { transition: padding-left .2s ease; }
+.record-detail .detail-links a:hover { padding-left: 12px; }
+.record-detail .timeline { max-width: none; padding-top: 0; }
+.record-detail .timeline-card { box-shadow: 3px 4px 0 #d8d2c580; }
+.record-detail .timeline-motion .timeline-item { transition-delay: 0s; }
+.record-detail .timeline-card h2 { font-size: 22px; line-height: 1.5; }
+.record-detail .timeline-card li { font-size: 13px; line-height: 1.9; }
+.record-personal-notes .detail-section:nth-child(-n+2) { margin-bottom: 26px; padding: 30px; background: #f8f5ee; border: 1px solid var(--line); box-shadow: 4px 4px 0 var(--record-paper); position: relative; }
+.record-personal-notes .detail-section:nth-child(-n+2):after { content: ''; position: absolute; width: 42px; height: 13px; background: #cbbba373; top: -6px; right: 25px; transform: rotate(5deg); }
+.record-personal-notes .detail-section:nth-child(-n+2) .detail-intro { font-family: Georgia, 'Songti SC', SimSun, serif; font-size: 16px; line-height: 2.1; }
+.record-pagination { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 25px 0; margin-top: 36px; }
+.record-pagination a { display: flex; gap: 19px; align-items: center; padding: 0; min-width: 0; }
+.record-pagination a:last-child { justify-content: flex-end; text-align: right; }
+.record-pagination img { width: 62px; height: 62px; object-fit: contain; flex: 0 0 auto; box-shadow: 2px 3px 0 #d8d2c5; transition: transform .2s ease; }
+.record-pagination a:hover img { transform: rotate(-5deg); }
+.record-pagination a > span { margin: 0; min-width: 0; }
+.record-pagination small { font-size: 9px; letter-spacing: 1px; color: var(--muted); }
+.record-pagination strong { display: block; font-family: var(--serif); font-size: 23px; line-height: 1.2; font-weight: 400; margin-top: 8px; color: #292823; }
+.record-pagination em { display: block; font-size: 10px; font-style: normal; margin-top: 5px; color: var(--muted); }
+.detail-colophon { margin-top: 22px; display: flex; justify-content: space-between; gap: 15px; color: var(--muted); font-size: 9px; letter-spacing: .7px; }
+@media (max-width: 1000px) {
+  .detail-layout { grid-template-columns: 175px minmax(0, 1fr); gap: 35px; }
+  .record-detail .timeline-item { gap: 16px; }
+  .record-detail .timeline-card { padding: 21px; }
+}
+@media (max-width: 700px) {
+  .record-detail { padding-top: 24px; padding-bottom: 42px; }
+  .record-detail > .back-link { margin-bottom: 25px; }
+  .detail-layout { grid-template-columns: minmax(0, 1fr); gap: 30px; padding-top: 25px; }
+  .detail-margin-inner { position: static; }
+  .index-label { font-size: 8px; margin-bottom: 12px; }
+  .index-label > span { display: inline; margin-left: 8px; font-size: 8px; }
+  .track-index { display: flex; flex-direction: row; gap: 16px; overflow-x: auto; max-height: none; padding: 0 2px 8px; scrollbar-width: thin; }
+  .track-index a { display: flex; align-items: baseline; flex-shrink: 0; padding: 8px 3px; gap: 8px; max-width: 225px; }
+  .track-index a span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 10px; }
+  .track-index a b { font-size: 10px; padding: 0; }
+  .margin-thought { display: none; }
+  .record-detail .detail-section { padding: 26px 0; }
+  .record-detail .detail-intro, .record-detail .detail-section li { font-size: 13px; }
+  .experience-note { padding: 12px; grid-template-columns: 35px minmax(0, 1fr); gap: 8px; }
+  .experience-note p { font-size: 12px; }
+  .record-detail .timeline-card { padding: 18px 16px; }
+  .record-detail .timeline-card h2 { font-size: 20px; }
+  .record-pagination { gap: 20px; padding: 20px 0; margin-top: 25px; }
+  .record-pagination a { gap: 12px; }
+  .record-pagination img { width: 38px; height: 38px; }
+  .record-pagination strong { font-size: 18px; overflow-wrap: anywhere; }
+  .record-pagination small { font-size: 8px; letter-spacing: .3px; }
+  .record-pagination em { font-size: 9px; }
+  .record-personal-notes .detail-section:nth-child(-n+2) { padding: 23px; }
+  .record-personal-notes .detail-section:nth-child(-n+2) .detail-intro { font-size: 15px; }
+  .detail-colophon { font-size: 8px; letter-spacing: .2px; }
+}
+@media (max-width: 370px) { .record-pagination img { display: none; } }

@@ -1,0 +1,139 @@
+---
+import { photos } from '../data/photos';
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+---
+
+<section id="photo-gallery" class="photo-archive" data-photo-carousel role="region" aria-roledescription="轮播" aria-label="摄影作品：十个观看的片刻" tabindex="0">
+  <header class="photo-heading">
+    <div>
+      <p class="photo-kicker">VISUAL DIARY / 10 FRAMES</p>
+      <h2>把路过，慢慢留下。</h2>
+      <p class="photo-preface">街道的纹理、山野的呼吸，以及那些不必解释的片刻。</p>
+    </div>
+    <button class="photo-play" type="button" data-photo-toggle aria-label="暂停照片轮播">
+      <span class="photo-play-icon" aria-hidden="true"></span>
+      <span data-photo-toggle-label>暂停轮播</span>
+    </button>
+  </header>
+
+  <div class="photo-stage" data-photo-stage>
+    <span class="photo-edge" aria-hidden="true">COLLECTED MOMENTS</span>
+    {photos.map((photo, index) => (
+      <figure
+        class:list={['photo-slide', { 'is-active': index === 0 }]}
+        data-photo-slide
+        data-title={photo.title}
+        data-note={photo.note}
+        role="group"
+        aria-roledescription="幻灯片"
+        aria-label={`第 ${index + 1} 张，共 ${photos.length} 张：${photo.title}`}
+        aria-hidden={index !== 0 ? 'true' : 'false'}
+      >
+        <img src={`${base}photos/${photo.file}`} alt={photo.alt} width={photo.width} height={photo.height} loading={index < 2 ? 'eager' : 'lazy'} decoding="async" draggable="false" />
+        <figcaption class="photo-sr-only">{photo.title}。{photo.note}</figcaption>
+      </figure>
+    ))}
+    <span class="photo-stage-number" aria-hidden="true">FRAME <span data-photo-number>01</span></span>
+    <span class="photo-corner photo-corner-tl" aria-hidden="true"></span>
+    <span class="photo-corner photo-corner-br" aria-hidden="true"></span>
+  </div>
+
+  <div class="photo-caption-bar">
+    <div class="photo-caption">
+      <span class="photo-caption-index" aria-hidden="true">[ <span data-photo-number>01</span> ]</span>
+      <div>
+        <h3 data-photo-title>{photos[0].title}</h3>
+        <p data-photo-note>{photos[0].note}</p>
+      </div>
+    </div>
+    <div class="photo-navigation" role="group" aria-label="切换照片">
+      <button type="button" data-photo-prev aria-label="上一张照片">←</button>
+      <span class="photo-count" aria-hidden="true"><span data-photo-number>01</span> / 10</span>
+      <button type="button" data-photo-next aria-label="下一张照片">→</button>
+    </div>
+  </div>
+
+  <div class="photo-filmstrip" role="group" aria-label="选择照片">
+    {photos.map((photo, index) => (
+      <button type="button" class="photo-thumbnail" data-photo-thumbnail={index} aria-label={`查看第 ${index + 1} 张：${photo.title}`} aria-current={index === 0 ? 'true' : undefined}>
+        <img src={`${base}photos/${photo.file}`} alt="" width={photo.width} height={photo.height} loading="lazy" decoding="async" draggable="false" />
+        <span>{String(index + 1).padStart(2, '0')}</span>
+      </button>
+    ))}
+  </div>
+  <div class="photo-bottom-line"><span>一些观看的练习</span><span>STILL LOOKING, STILL LEARNING.</span></div>
+  <p class="photo-sr-only" data-photo-status role="status" aria-live="polite" aria-atomic="true"></p>
+  <noscript><p class="photo-no-script">完整摄影集：{photos.map((photo, index) => <a href={`${base}photos/${photo.file}`}>照片 {String(index + 1).padStart(2, '0')} · {photo.title}</a>)}</p></noscript>
+</section>
+
+<script>
+  import { installPhotoCarousels } from '../scripts/photo-carousel';
+  installPhotoCarousels();
+</script>
+
+<style>
+  .photo-archive { --photo-accent: #9b4b37; margin: 38px 0 20px; min-width: 0; }
+  .photo-archive:focus-visible { outline: 1px solid #777d5d; outline-offset: 9px; }
+  .photo-heading { display: flex; justify-content: space-between; align-items: center; gap: 22px; padding: 0 0 26px; }
+  .photo-kicker { margin: 0 0 13px; color: #777d5d; font-size: 9px; letter-spacing: 1.8px; }
+  .photo-heading h2 { margin: 0; font-family: Georgia, 'Songti SC', 'SimSun', serif; font-size: clamp(23px, 3vw, 32px); font-weight: 400; letter-spacing: 1px; line-height: 1.5; }
+  .photo-preface { margin: 10px 0 0; color: var(--muted); font-size: 12px; line-height: 1.9; }
+  button { color: inherit; font: inherit; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+  button:focus-visible { outline: 2px solid #777d5d; outline-offset: 4px; }
+  .photo-play { flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-height: 44px; background: transparent; border: 1px solid var(--line); border-radius: 0; padding: 10px 14px; color: #625d51; font-size: 10px; letter-spacing: .5px; }
+  .photo-play-icon { width: 8px; height: 10px; border-left: 2px solid currentColor; border-right: 2px solid currentColor; }
+  .photo-archive[data-paused='true'] .photo-play-icon { width: 0; height: 0; border-top: 5px solid transparent; border-bottom: 5px solid transparent; border-left: 8px solid currentColor; border-right: 0; }
+  .photo-stage { position: relative; height: clamp(330px, 47vw, 530px); background: #e6e1d6; border: 1px solid #d0c9bb; overflow: hidden; isolation: isolate; touch-action: pan-y pinch-zoom; }
+  .photo-stage::before { content: ''; position: absolute; inset: 10px; border: 1px solid #d3ccbf; pointer-events: none; }
+  .photo-slide { position: absolute; inset: 26px 43px; margin: 0; opacity: 0; visibility: hidden; transition: opacity .8s ease, visibility .8s; }
+  .photo-slide.is-active { opacity: 1; visibility: visible; z-index: 1; }
+  .photo-slide img { display: block; width: 100%; height: 100%; object-fit: contain; user-select: none; }
+  .photo-edge { position: absolute; z-index: 2; left: 17px; top: 50%; writing-mode: vertical-rl; transform: translateY(-50%) rotate(180deg); font-size: 7px; letter-spacing: 1.8px; color: #857966; pointer-events: none; }
+  .photo-stage-number { position: absolute; z-index: 2; bottom: 9px; right: 45px; padding: 0 8px; background: #e6e1d6; font-size: 7px; letter-spacing: 1.5px; color: #857966; pointer-events: none; }
+  .photo-corner { position: absolute; width: 16px; height: 16px; z-index: 2; pointer-events: none; opacity: .75; }
+  .photo-corner-tl { top: 19px; left: 34px; border-top: 1px solid #8b7157; border-left: 1px solid #8b7157; }
+  .photo-corner-br { right: 34px; bottom: 19px; border-bottom: 1px solid #8b7157; border-right: 1px solid #8b7157; }
+  .photo-caption-bar { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; min-height: 111px; padding: 23px 0 22px; }
+  .photo-caption { display: flex; align-items: baseline; gap: 17px; }
+  .photo-caption-index { flex-shrink: 0; color: var(--photo-accent); font-family: var(--serif); font-size: 12px; }
+  .photo-caption h3 { margin: 0; font-size: 15px; font-weight: 400; letter-spacing: .6px; line-height: 1.6; }
+  .photo-caption p { margin: 6px 0 0; color: var(--muted); font-size: 11px; line-height: 1.85; }
+  .photo-navigation { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+  .photo-navigation button { width: 40px; height: 40px; background: transparent; border: 1px solid var(--line); border-radius: 50%; font-size: 17px; transition: background .2s, border-color .2s; }
+  .photo-count { color: #756f61; font-family: var(--serif); font-size: 11px; letter-spacing: 1px; white-space: nowrap; }
+  .photo-filmstrip { display: flex; gap: 12px; width: 100%; overflow-x: auto; padding: 19px 15px 16px; background: #e7e1d6; border: 1px solid #d3ccbf; scrollbar-width: thin; scrollbar-color: #a69b87 #e7e1d6; background-image: repeating-linear-gradient(90deg, transparent 0 11px, #f3f0e8 11px 20px, transparent 20px 30px), repeating-linear-gradient(90deg, transparent 0 11px, #f3f0e8 11px 20px, transparent 20px 30px); background-size: 100% 4px; background-position: left 5px, left bottom 5px; background-repeat: no-repeat; }
+  .photo-thumbnail { position: relative; flex: 1 0 72px; min-width: 0; padding: 4px 4px 3px; border: 1px solid transparent; border-radius: 0; background: transparent; transition: border-color .25s, background .25s; }
+  .photo-thumbnail img { display: block; width: 100%; height: 51px; object-fit: cover; opacity: .7; transition: opacity .25s; }
+  .photo-thumbnail span { display: block; margin-top: 5px; color: #796f5d; font-family: var(--serif); font-size: 9px; line-height: 1; text-align: left; }
+  .photo-thumbnail[aria-current='true'] { border-color: var(--photo-accent); background: #f3eee3; }
+  .photo-thumbnail[aria-current='true'] img { opacity: 1; }
+  .photo-thumbnail[aria-current='true'] span { color: var(--photo-accent); }
+  .photo-bottom-line { display: flex; justify-content: space-between; gap: 16px; margin-top: 15px; font-size: 8px; color: #8a8172; letter-spacing: 1px; line-height: 1.8; }
+  .photo-sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+  .photo-no-script { font-size: 12px; line-height: 2; }
+  .photo-no-script a { display: inline-block; margin-right: 16px; text-decoration: underline; }
+  @media (hover: hover) { .photo-navigation button:hover, .photo-play:hover { background: #e6e1d6; border-color: #a99d89; } .photo-thumbnail:hover img { opacity: 1; } }
+  @media (max-width: 700px) {
+    .photo-archive { margin: 32px 0 12px; }
+    .photo-heading { align-items: flex-start; gap: 12px; padding-bottom: 20px; }
+    .photo-preface { font-size: 11px; }
+    .photo-play { min-width: 44px; padding: 10px; font-size: 9px; gap: 6px; }
+    .photo-stage { height: clamp(330px, 87vw, 480px); }
+    .photo-slide { inset: 22px 26px; }
+    .photo-stage::before { inset: 7px; }
+    .photo-edge { left: 11px; font-size: 6px; letter-spacing: 1.2px; }
+    .photo-stage-number { bottom: 6px; right: 24px; font-size: 6px; }
+    .photo-corner-tl { left: 20px; top: 16px; }
+    .photo-corner-br { right: 20px; bottom: 16px; }
+    .photo-caption-bar { display: block; padding: 19px 0 18px; }
+    .photo-caption { gap: 12px; min-height: 71px; }
+    .photo-caption h3 { font-size: 14px; }
+    .photo-navigation { justify-content: flex-end; margin-top: 12px; }
+    .photo-navigation button { width: 44px; height: 44px; }
+    .photo-filmstrip { gap: 8px; padding-left: 10px; padding-right: 10px; }
+    .photo-thumbnail { flex-basis: 69px; }
+    .photo-bottom-line { font-size: 7px; letter-spacing: .6px; }
+  }
+  @media (max-width: 400px) { .photo-heading { flex-wrap: wrap; } .photo-play { min-width: 108px; } .photo-bottom-line { flex-wrap: wrap; gap: 4px; } }
+  @media (prefers-reduced-motion: reduce) { .photo-slide, .photo-thumbnail, .photo-thumbnail img, .photo-navigation button { transition: none; } }
+</style>
