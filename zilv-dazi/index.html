@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#EDF1F5">
+<title>自律搭子</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=ZCOOL+XiaoWei&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+  <header class="top">
+    <div class="brand">
+      <h1>自律搭子</h1>
+      <p>和朋友一起，每天打个卡</p>
+    </div>
+    <div class="me" id="me"></div>
+  </header>
+
+  <!-- 登录 / 注册 -->
+  <form class="card auth" id="auth" hidden>
+    <h2 id="auth-title">登录</h2>
+    <p class="hint" id="auth-sub">用邮箱和密码登录，你和搭子的打卡都在这里。</p>
+    <div id="nick-wrap" hidden>
+      <label class="fieldlabel" for="auth-nick">昵称</label>
+      <input type="text" id="auth-nick" maxlength="16" placeholder="比如：小萌">
+    </div>
+    <label class="fieldlabel" for="auth-email">邮箱</label>
+    <input type="text" id="auth-email" inputmode="email" autocomplete="email" placeholder="you@example.com">
+    <label class="fieldlabel" for="auth-pass">密码</label>
+    <input type="password" id="auth-pass" autocomplete="current-password" placeholder="至少 6 位">
+    <div style="height:16px"></div>
+    <button class="primary" id="auth-btn" type="submit">登录</button>
+    <p class="err" id="auth-err" hidden></p>
+    <div class="switch"><button type="button" class="linkbtn" id="auth-switch">还没有账号？注册一个</button></div>
+  </form>
+
+  <div id="main" hidden>
+    <nav class="tabs" role="tablist">
+      <button role="tab" id="tab-today" aria-selected="true" data-view="today">今天</button>
+      <button role="tab" id="tab-feed" aria-selected="false" data-view="feed">动态</button>
+      <button role="tab" id="tab-board" aria-selected="false" data-view="board">排行</button>
+    </nav>
+
+    <main>
+      <section class="view" id="v-today">
+        <form class="card" id="onboard" hidden>
+          <h2>先给自己起个名字</h2>
+          <p class="hint">朋友会在动态和排行里看到这个名字。</p>
+          <label class="fieldlabel" for="nick-input">昵称</label>
+          <input type="text" id="nick-input" maxlength="16" placeholder="比如：小萌" required>
+          <div style="height:14px"></div>
+          <button class="primary" id="nick-btn">开始打卡</button>
+        </form>
+
+        <div id="today-main" class="view" hidden>
+          <div class="card">
+            <div class="dayhead">
+              <div>
+                <div class="eyebrow" id="today-date"></div>
+                <h2>今天的目标</h2>
+              </div>
+              <div class="stamp" id="today-stamp" hidden>已打卡</div>
+            </div>
+            <ul class="goals" id="goal-list"></ul>
+            <form class="addgoal" id="goal-form">
+              <label class="sr" for="goal-input">添加目标</label>
+              <input type="text" id="goal-input" maxlength="40" placeholder="加一个每天的小目标，比如：跑步 3 公里">
+              <button class="ghost" type="submit">添加</button>
+            </form>
+            <div style="text-align:right"><button type="button" class="linkbtn" id="manage-btn">管理目标</button></div>
+
+            <label class="fieldlabel" for="note">今天完成了什么、做了什么</label>
+            <textarea id="note" rows="4" maxlength="1000" placeholder="读完了第三章；晚上没刷手机，11 点就睡了。"></textarea>
+
+            <div class="photo-row">
+              <img id="photo-preview" alt="打卡照片预览" hidden>
+              <label class="ghost" id="photo-btn" for="photo-input">添加照片</label>
+              <input type="file" id="photo-input" accept="image/*" class="sr">
+              <button type="button" class="linkbtn" id="photo-remove" hidden>移除照片</button>
+            </div>
+
+            <button class="primary" id="checkin-btn">打卡</button>
+          </div>
+          <div class="card" id="buddies"></div>
+        </div>
+      </section>
+
+      <section class="view" id="v-feed" hidden></section>
+      <section class="view" id="v-board" hidden></section>
+    </main>
+  </div>
+
+  <div class="card" id="loading">
+    <h2>正在打开打卡本…</h2>
+  </div>
+  <div class="banner" id="config-missing" hidden>还没有填写 Supabase 配置。请在 config.js 里填上 Project URL 和 anon key。</div>
+</div>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
