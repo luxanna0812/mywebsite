@@ -87,6 +87,10 @@ const nextRecord = records[record.order % records.length];
               </div>
             </div>
           ) : section.intro && <p class="detail-intro">{section.intro}</p>}
+          {section.caseImage && <figure class="case-study-image">
+            <img src={`${base}${section.caseImage}`} alt={section.imageAlt ?? section.heading} loading="lazy" decoding="async" />
+            <figcaption>自律搭子网站 / 产品界面与视觉方向</figcaption>
+          </figure>}
           {section.bullets && <ul>{section.bullets.map(bullet => <li>{bullet}</li>)}</ul>}
           {section.links && <nav class="detail-links" aria-label={`${section.heading}链接`}>
             {section.links.map(link => link.url

@@ -12,6 +12,8 @@ export interface DetailSection {
   reflection?: string;
   bullets?: string[];
   tags?: string[];
+  caseImage?: string;
+  imageAlt?: string;
   links?: { label: string; url?: string }[];
 }
 export interface TimelineEntry {
@@ -186,16 +188,18 @@ export const detailSections: Record<string, DetailSection[]> = {
       tags: ['市场调研', '竞品分析', '用户旅程', 'AI 产品策略'],
     },
     {
-      heading: 'Newcastle University Green Hackathon',
-      period: '2024.02 · 校园可持续提案',
-      intro: '从学生搬离宿舍时的衣物、电子产品与食品浪费出发，把日常经历拆成可以回应的设计问题。',
+      heading: '自律搭子网站搭建',
+      period: '2026 · 独立产品实践',
+      intro: '为解决和朋友互相监督自律的需求，从 0 到 1 策划并上线一款打卡网站，主导需求定义、功能取舍与视觉方向，借助 AI 编程工具完成开发。',
+      caseImage: 'cases/self-discipline.svg',
+      imageAlt: '自律搭子网站界面案例图，展示动态打卡、今日报告与本周对决排行三个页面',
       bullets: [
-        '识别临近搬家才处理物品、不了解回收渠道、缺少参与动力、受同伴行为影响等 4 类问题。',
-        '设计提前 1 个月启动的搬家时间线、“回收 3 件物品换披萨”活动、宿舍回收竞赛与实时排名，用提醒和参与激励衔接行动。',
-        '团队在 4 小时内完成主题、海报、二维码入口与资源网站设计，将捐赠点、回收地图、活动信息和时间线整合为完整提案。',
+        '方案选型时先评估改造开源微信小程序，因云开发成本转向「网页 + Supabase 数据库 + Netlify 部署」的零成本方案，一晚完成上线。',
+        '设计「勾选即打卡、时长饼图、今日忏悔、向组织报告」等功能，并把排行页设计成「本周对决 + 赛道」的竞赛玩法，用贴纸和挑衅文案增强互动张力。',
+        '参考手绘插画风 UI，确定「蓝天草地 + 纸片」的整体视觉，整合自有贴纸形成统一风格，支持日夜两套主题。',
       ],
-      reflection: '一项好的倡议，需要给人一个足够清楚、足够容易迈出的第一步。',
-      tags: ['用户洞察', 'Campaign 策划', '快速协作'],
+      reflection: '从需求判断到视觉设计、技术选型和上线迭代，我用 AI 加速实现，把两个人的真实需求做成了可以持续使用的产品。',
+      tags: ['产品策划', 'AI 编程', 'Supabase', 'Netlify', 'UI 设计'],
     },
     {
       heading: '雀巢罐装咖啡整合营销企划',

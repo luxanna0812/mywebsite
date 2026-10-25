@@ -31,6 +31,9 @@
 .record-detail .detail-section h2 { font-size: clamp(20px, 2.3vw, 25px); line-height: 1.5; color: #38372f; overflow-wrap: anywhere; }
 .record-detail .detail-section-heading > span { display: block; margin-top: 10px; text-align: left; line-height: 1.8; }
 .record-detail .detail-intro, .record-detail .detail-section li { color: #67645c; font-size: 14px; line-height: 2; }
+.case-study-image { margin: 28px 0 30px; }
+.case-study-image img { display: block; width: 100%; height: auto; border: 1px solid #d5d1c7; background: #f5f0e3; }
+.case-study-image figcaption { margin-top: 9px; color: var(--muted); font-size: 10px; letter-spacing: .6px; }
 .record-detail .detail-section li { padding-left: 4px; margin: 12px 0; }
 .record-detail .detail-section li::marker { color: var(--record-accent); font-size: 9px; }
 .record-detail .detail-tags span { border-radius: 2px; border-color: transparent; background: var(--record-paper); color: var(--record-accent); padding: 6px 9px; }
