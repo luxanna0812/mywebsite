@@ -1,3 +1,5 @@
+import { aboutQuestions } from './about-questions';
+
 export interface RecordEntry {
   number: string; slug: string; title: string; category: string;
   year?: string; cover?: string; coverStyle: string; coverText: string;
@@ -29,7 +31,7 @@ export interface TravelSpot {
 const entries = [
   ['profile', 'About Me', '关于我', 'portrait', 'self.'],
   ['education', 'Timeline', '时间线', 'pages', 'Ways of\nlearning.'],
-  ['research', 'Work', '工作经历', 'orbit', 'Look closer.'],
+  ['research', 'Work', '关于我的八大问', 'orbit', 'Look closer.'],
   ['strategy', 'Projects', '项目经历', 'path', 'Which\nway?'],
   ['campaign', 'Volunteering', '志愿与社区', 'type', 'MAKE\nIT\nMATTER.'],
   ['content', 'Portfolio', '作品集', 'editorial', 'Words,\nwith\nmeaning.'],
@@ -392,6 +394,8 @@ export const detailSections: Record<string, DetailSection[]> = {
     },
   ],
 };
+
+detailSections.research = aboutQuestions;
 
 export const timelineEntries: TimelineEntry[] = [
   { period: '2026.04–2026.09', title: '良介文化世界电影节', type: 'work', location: '远程 · 内容设计、展映运营', description: '在文化项目现场，把视觉内容、观众与合作方组织到同一条线上。', highlights: ['连续 5 个月每周产出 4 组视觉物料、1 条宣传视频；统筹每周 2 场线上展映，覆盖 500+ 人次。', '主导组建 15 人志愿者团队，协调片方、字幕、技术与嘉宾交付。'], tags: ['视觉设计', '项目统筹'] },
