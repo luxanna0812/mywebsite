@@ -179,6 +179,8 @@ export const detailSections: Record<string, DetailSection[]> = {
       heading: 'LSE Skills Accelerator Nano Project',
       period: '2026.01–2026.03 · AvecPortales Coaching+Consulting',
       intro: '为加拿大教育与成长初创公司梳理高端康养旅行与 AI 情感陪伴的市场方向。面对丰富的初步构想与尚未统一的判断标准，我先建立共同的分析框架，让五人国际团队能够围绕同一组问题推进讨论。',
+      caseImage: 'cases/lse-business-flywheel.jpeg',
+      imageAlt: 'AI 情感陪伴产品业务飞轮图，展示数字入口、线下转型服务与持续陪伴的用户路径',
       bullets: [
         '筛选 12 家代表性企业及产品，从产品形态、定价、目标客群与 AI 能力 4 个维度建立竞品对标，独立输出差异化定位分析。',
         '结合客户访谈资料、服务流程与公开案例，拆解完整用户旅程，识别高接触服务难以规模化、旅行后缺少持续陪伴、临床型 AI 的场景适配与伦理限制 3 项痛点。',
@@ -205,6 +207,8 @@ export const detailSections: Record<string, DetailSection[]> = {
       heading: '雀巢罐装咖啡整合营销企划',
       period: '2022.11–2023.01 · 学生企划项目',
       intro: '以雀巢罐装咖啡为研究对象，完成从市场诊断、目标人群选择到传播与效果评估的整合营销方案。',
+      caseImage: 'cases/nestle-campaign-plan.png',
+      imageAlt: '雀巢罐装咖啡整合营销企划中的平面表现方案页，展示东方神话主题创意与视觉提案',
       bullets: [
         '梳理即饮咖啡市场、消费者需求与主要品牌竞争格局，识别年轻人群扩张、便携需求与现磨咖啡竞争带来的机会和风险。',
         '围绕 20–35 岁学生与上班族，设计社交媒体、KOL/KOC、世界杯促销、线上互动、线下活动及会员运营等多触点方案。',
@@ -302,7 +306,8 @@ export const detailSections: Record<string, DetailSection[]> = {
       heading: '直接查看作品',
       intro: '更多文字、视觉与完整案例，可以从这些入口继续阅读。',
       links: [
-        { label: '小红书', url: 'https://xhslink.cn/o/5ENgYQVjCW7' },
+        { label: '小红书｜个人生活娱乐号', url: 'https://xhslink.cn/o/5ENgYQVjCW7' },
+        { label: '小红书｜鲨鱼 Tindra', url: 'https://www.xiaohongshu.com/user/profile/676cd14b000000001801eadb?xsec_token=ABVTk8u8VyMUgM_BzMEOe4S8lJqwBxI3FtyVNGSDlK_L8%3D&xsec_source=pc_search' },
         { label: '微信公众号：Simone的鱼塘' },
         { label: '网页：鲨鱼国的后花园', url: 'https://blog.94203344.xyz/' },
         { label: 'Notion 案例：Portfolio', url: 'https://brash-feeling-67b.notion.site/Portfolio-3567d96f056c8022a3f2c09586db186f' },
