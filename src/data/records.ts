@@ -307,12 +307,19 @@ export const detailSections: Record<string, DetailSection[]> = {
       intro: '更多文字、视觉与完整案例，可以从这些入口继续阅读。',
       links: [
         { label: '小红书｜个人生活娱乐号', url: 'https://xhslink.cn/o/5ENgYQVjCW7' },
-        { label: '小红书｜鲨鱼 Tindra', url: 'https://www.xiaohongshu.com/user/profile/676cd14b000000001801eadb?xsec_token=ABVTk8u8VyMUgM_BzMEOe4S8lJqwBxI3FtyVNGSDlK_L8%3D&xsec_source=pc_search' },
         { label: '微信公众号：Simone的鱼塘' },
         { label: '网页：鲨鱼国的后花园', url: 'https://blog.94203344.xyz/' },
         { label: 'Notion 案例：Portfolio', url: 'https://brash-feeling-67b.notion.site/Portfolio-3567d96f056c8022a3f2c09586db186f' },
         { label: 'Notion 案例：Planning & Time Management', url: 'https://app.notion.com/p/Planning-Time-Management-A-Worked-Example-3567d96f056c80659e81ffec0a6059' },
       ],
+    },
+    {
+      heading: '鲨鱼 Tindra｜小红书',
+      intro: '从喜欢鲨鱼角色开始，我持续记录相关内容、连接粉丝，也为鲨鱼社群搭建网站。',
+      links: [
+        { label: '打开小红书账号：鲨鱼 Tindra', url: 'https://www.xiaohongshu.com/user/profile/676cd14b000000001801eadb?xsec_token=ABVTk8u8VyMUgM_BzMEOe4S8lJqwBxI3FtyVNGSDlK_L8%3D&xsec_source=pc_search' },
+      ],
+      tags: ['鲨鱼角色', '粉丝社群', '内容创作'],
     },
     {
       heading: '内容方法',
