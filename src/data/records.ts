@@ -319,10 +319,10 @@ export const detailSections: Record<string, DetailSection[]> = {
     {
       heading: '声音与影像',
       bullets: [
-        '喜欢 Bossa Nova、摇滚与 J-Pop，关注欧美和日本影视，也收听人文播客。不同的声音与叙事方式，帮助我留意感受如何被组织、被分享。',
-        '从对音乐的兴趣走入粉丝文化研究，又在电影节的内容设计与展映中接近作品背后的劳动。观看和聆听，逐渐成为我理解文化的两种日常练习。',
+        '喜欢 Lana Del Rey / John Mayor / Fujii Kaze / King Gnu / One Ok Rock 等，关注欧美和日本影视，也爱收听人文播客例如《八分半》。不同的声音与叙事方式，帮助我留意感受如何被组织、被分享。',
+        '从对音乐的兴趣走入粉丝文化研究，帮粉丝群体发声。常年混迹鲨鱼圈，构建鲨鱼粉丝群和网站。',
       ],
-      reflection: '有些理解，是反复听过、看过之后，才慢慢发生的。',
+      reflection: '观看和聆听，是我理解文化的两种日常练习。',
     },
     {
       heading: '在路上',
